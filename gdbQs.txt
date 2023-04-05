@@ -1,0 +1,92 @@
+Mediatek
+----------
+https://linuxhint.com/bash_scripting_interview_questions/
+
+GDB:
+---------------------------------------------------------------------------------------------
+g++ -g -o gfg gfg.cpp
+run
+break [function name]
+break [file name]:[line number]
+break [line number]
+break *[address]
+break ***any of the above arguments*** if [condition]
+b ***any of the above arguments*** 
+info breakpoint
+
+---------------------------------------------------------------------------------------------
+(gdb) set args 1 2 3 4
+(gdb) show args
+(gdb) run
+Starting program: /home/kkuman/coding/myFile 1 2 3 4
+1
+4
+9
+16
+[Inferior 1 (process 3699) exited normally]
+---------------------------------------------------------------------------------------------
+Setting a Bookmark to Return to Later
+	On certain operating systems4, GDB is able to save a snapshot of a program’s state, called a checkpoint, and come back to it later.
+	
+	Returning to a checkpoint effectively undoes everything that has happened in the program since the checkpoint was saved. This includes changes in memory, registers, and even (within some limits) system state. Effectively, it is like going back in time to the moment when the checkpoint was saved.
+	
+	Thus, if you’re stepping thru a program and you think you’re getting close to the point where things go wrong, you can save a checkpoint. Then, if you accidentally go too far and miss the critical statement, instead of having to restart your program from the beginning, you can just go back to the checkpoint and start again from there.
+	
+	This can be especially useful if it takes a lot of time or steps to reach the point where you think the bug occurs.
+---------------------------------------------------------------------------------------------
+checkpoint for debugging the flows of the program
+
+(gdb) set arg 30 40
+(gdb) run
+(gdb) break findSquare
+Breakpoint 2 at 0x5555555548e1: file temp.cpp, line 8.
+(gdb) run
+Starting program: /home/kkuman/coding/myFile 30 40
+
+Breakpoint 2, findSquare (a=30) at temp.cpp:8
+8           return a * a;
+(gdb) checkpoint
+checkpoint 1: fork returned pid 32020.
+(gdb) info checkpoint
+* 0 process 31993 (main process) at 0x5555555548e1, file temp.cpp, line 8
+  1 process 32020 at 0x5555555548e1, file temp.cpp, line 8
+(gdb) checkpoint
+checkpoint 2: fork returned pid 32370.
+(gdb) info checkpoint
+* 0 process 31993 (main process) at 0x5555555548e1, file temp.cpp, line 8
+  1 process 32020 at 0x5555555548e1, file temp.cpp, line 8
+  2 process 32370 at 0x5555555548e1, file temp.cpp, line 8
+(gdb) restart 0
+Switching to process 31993
+#0  findSquare (a=30) at temp.cpp:8
+8           return a * a;
+(gdb) info checkpoint
+* 0 process 31993 (main process) at 0x5555555548e1, file temp.cpp, line 8
+  1 process 32020 at 0x5555555548e1, file temp.cpp, line 8
+  2 process 32370 at 0x5555555548e1, file temp.cpp, line 8
+(gdb) restart 2
+Switching to process 32370
+#0  findSquare (a=30) at temp.cpp:8
+8           return a * a;
+(gdb) info checkpoint
+  0 process 31993 (main process) at 0x5555555548e1, file temp.cpp, line 8
+  1 process 32020 at 0x5555555548e1, file temp.cpp, line 8
+* 2 process 32370 at 0x5555555548e1, file temp.cpp, line 8
+---------------------------------------------------------------------------------------------
+Load file symbols into gdb :
+
+(gdb) run
+Starting program:
+No executable file specified.
+Use the "file" or "exec-file" command.
+(gdb) file myFile
+Reading symbols from myFile...done.
+(gdb) run
+Starting program: /home/kkuman/coding/myFile
+[Inferior 1 (process 2030) exited normally]
+(gdb) run 30
+Starting program: /home/kkuman/coding/myFile 30
+900
+[Inferior 1 (process 2035) exited normally]
+
+----------------------------------------------------------------------------------------------

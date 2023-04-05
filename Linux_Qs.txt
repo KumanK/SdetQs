@@ -1,0 +1,7 @@
+> sed -i 's/foo/koo/' hello.txt    -> for every line of hello.txt first occurance of foo will be replaced with koo
+> sed -i "s/old/new/g" sample.txt  -> old will become new for every occurance
+> sed -i "s/old/new/gI" sample.txt -> OLd, old, Old case sensitive "old" will be replaced
+
+> cat sample.txt | awk "/new/"  -> find the new in eac line, print whole line if found
+> cat sample.txt | awk "/^new/" -> find the new word in start of line
+> awk '{print $1 "\t" $3}' sample.txt -> print first & 3rd word of each line
