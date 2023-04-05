@@ -2,7 +2,7 @@ Mediatek
 ----------
 https://linuxhint.com/bash_scripting_interview_questions/
 
-GDB:
+GDB:\
 ---------------------------------------------------------------------------------------------
 g++ -g -o gfg gfg.cpp
 run
