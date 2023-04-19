@@ -1,7 +1,90 @@
-> sed -i 's/foo/koo/' hello.txt    -> for every line of hello.txt first occurance of foo will be replaced with koo
+> sed 's/foo/koo/' hello.txt       -> for every line of hello.txt first occurance of foo will be replaced with koo
+
+> sed -i 's/foo/koo/' hello.txt    -> for every line of hello.txt first occurance of foo will be replaced with koo in place, hello.txt will be modified
+
 > sed -i "s/old/new/g" sample.txt  -> old will become new for every occurance
 > sed -i "s/old/new/gI" sample.txt -> OLd, old, Old case sensitive "old" will be replaced
 
-> cat sample.txt | awk "/new/"  -> find the new in eac line, print whole line if found
+> cat sample.txt | awk "/new/"  -> find the word 'new' in each line, print whole line if found
 > cat sample.txt | awk "/^new/" -> find the new word in start of line
 > awk '{print $1 "\t" $3}' sample.txt -> print first & 3rd word of each line
+> awk '/n$/' sample.txt     -> lines end with char n
+
+
+> add line when pattern matches in a line using sed, write a sentance before that line 
+	syntax = sed "/to be match text/ s/^/to be written text/" filename
+	
+	sed "/PHP is an open-source language/ s/^/Added content by sed\n/" input.txt
+> If there is a match in the line insert a line after that line
+	sed "s/PHP/&\nLaravel/"
+
+
+> logging modules in linux
+	> journalctl
+	> /var/log/auth.log
+	> /var/log/syslog or /var/log/messages
+	> dmesg -T , kernel logs
+
+> find command,
+
+	> find a word from a folder's files ! (Nasdaq Q)
+		cmd = grep -Rw . -e "hot"
+		R - recursive search in all direcotires
+		w - word match
+		e - pattern/regex
+	example:
+		root@administrator-hmecd000149:/home/kkuman/coding# grep -Rw . -e ".ot"
+        Binary file ./gdb/myFile matches
+        Binary file ./gdb/watchFile matches
+        ./files/l2.txt:dajshdj got hsas hocas
+        ./files/l1.txt:ksdj got hot
+        Binary file ./a.out matches
+
+		
+	> for a directory in cwd
+		find . -type d -name gdb
+		./coding/gdb
+	
+	> Find Executable Files
+		find . -perm /a=x
+		
+	> find a specific file and delete
+		 find . -type f -name "remove_*" -exec rm -f {} \;
+	
+	> Find all Empty Files/direcotires
+		find . -type f -empty
+		find . -type d -empty
+	
+	> find hidden ones
+		find /tmp -type f -name ".*"
+		
+	> find a specific file and move to the specific destination
+		 find /home/kkuman/coding/ -type f -name "*.remove" -exec cp -f "{}" /home/kkuman/coding/trash \;
+	
+	
+	> find a html/xml types of files and move them the specific destination folders /HTML and /XML respectively (MediaTek interview Q)
+		find . -type f -name *.html -exec cp {} /home/kkuman/HTML/ \;; find . -type f -name *.xml -exec cp {} /home/kkuman/XML/ \;
+	
+
+xargs : 
+  1.
+	xargs is a Unix command which can be used to build and execute commands from standard input
+	xargs takes the input from STDIN (which is o/p of a.out executable)
+
+
+	root@administrator-hmecd000149:/home/kkuman/coding# ./a.out
+	file1
+	file2
+	file3
+	file4
+	root@administrator-hmecd000149:/home/kkuman/coding# ./a.out | xargs touch
+	root@administrator-hmecd000149:/home/kkuman/coding# ls
+	a.out  file1  file2  file3  file4  
+
+  2. delete all the .xml files recursively from a folder & all sub folders
+   > find /home/kkuman/coding/ -type f -name "*.xml" | xargs rm
+
+
+
+
+	

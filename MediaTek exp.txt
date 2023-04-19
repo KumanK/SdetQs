@@ -1,0 +1,237 @@
+Proficiency in Python and experience in Java or C/C++
+
+·         Strong background in testing and test automation
+
+·         Strong Linux system experience, bash scripting
+
+·         Master Degree in Computer Science, Computer Engineering or related field and 10+ years of professional experience
+
+ 
+
+Helpful Knowledge/Skills
+
+·         Working knowledge of gdb, DejaGnu and TCL/expect is a big plus
+
+·         Experience in git, pytest, Google Test
+
+·         Experience working with Jenkins continuous integration framework
+
+·         Linux, Windows and Mac software development
+
+·         Experience in working with HW Evaluation Boards (EVBs)
+
+·         Excellent problem solving, design, coding skills and software development process knowledge
+
+
+ketaideM
+	Python :
+		1. relative sorting
+		2. json parsing
+		3. find a common numbers from each entry in a list
+			li = [[1,2,3],[2,3,5],[3,2,7]]
+			ans = [2,3]
+	Linux:
+		1. sed
+		2. find the files with *.deb and move to respective folders
+		3. grep with regex "^"
+		4. tar command to compress files into *.tar.gz
+
+daeR:
+	> gdb commands
+	> linux advanced commands
+	> find 
+	> Jenkin's pipelines
+	> ARM board knowledge
+	
+dnuor 2nd:
+
+
+
+
+# Remove all `*.o` from the current directory recursivelly.
+
+find /home/ -type f -name '*.o' -exec rm -f {} \;
+
+# Let's say there are about 1000 .o files in /home/
+# How many times `rm`` will be executed?
+
+# rm can accept multiple arguments, so theoretically we can run it ones.
+# Can you change your command to do it?
+
+
+rm -rf *.o 
+
+
+# /home/foo.o
+# /home/bar.o
+# /home/baz/baz.o
+
+# Do you know `xargs`?
+
+
+
+# In a bash script, 
+# I wanna run `my-command` and if it fails, I want to print "error" and stop the script.
+# How to do it?
+
+command
+if $? -lt 0 or $? -gt 0 :
+    echo 'error'
+    exit 1
+
+
+# -----------------------
+# Python
+
+
+# Do you write unit tests in python
+
+# You used both unittest and pytest?
+
+
+def fibonacci(a: int) -> int:
+    if a < 2:
+        return a
+    return fibonacci(a - 1) + fibonacci(a - 2)
+
+
+# Could you write a test for it?
+
+# Input : 0, 1, 2, 3, 4, 5, 6, 7,  8,  9,  10, 11, 12
+# Output: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144
+
+# test case 
+def test_zero(input_with_0):
+    ret = fibonacci(input_with_0)
+    assert ret == 0
+def test_with_less_or_2(input_with_gt_2):
+    ret = fibonacci(input_with_gt_2)
+    assert ret == 1
+def test_with_greater_than_2(input):
+    ret = fibonacci(input)
+    assert ret == specs[input]
+
+
+specs = {
+    0:0,
+    1:1,
+    2:1,
+    3:2
+}
+
+conftest.py:
+    import pytest
+    @pytest.fixture
+    def input_with_0():
+        return 0
+    
+    @pytest.fixture
+    def input_with_gt_2():
+        return 5
+
+    @pytest.fixture
+    def input_with_0():
+        return 0
+
+> pytest  0 2 4
+
+
+@pytest.mark.parameterized("num","res",[(0,0),(6,8),(2,1)])
+def test_fibonacii(num,res):
+    ret = fibonacci(num)
+    assert ret == res
+
+
+# --------------------------------------------------
+
+# numpy, scipy, matplotlib, pandas?
+
+# What other python frameworks have you used?
+
+# Have you worked with SQL?
+
+
+# table users
+# name, age, retired
+
+# could you select all users with age more than 20?
+
+select name from users where age>20
+
+# Could you set `retired` to true for all users that are older than 67?
+
+update users set retired=True where  age>67
+
+# -------------------------------------------------
+
+# Can you make a GET request to example.com in python?
+
+# Check if successfull, and if so, the body will be JSON, and it will have field "message",
+# Print this field.
+
+import requests
+
+result = requests.get("www.examples.com")
+if result.status_code == 200:
+    if 'message' in result.json():
+        print("yeah")
+
+
+
+# GOOD GOOD
+
+# ------------------------------------
+
+
+# What `async` keyword does in python?
+
+# -----------------------------------------
+
+
+# What is difference between multiprocessing and multithreding?
+
+# git?
+
+# You made a commit, but haven't pushed it yet,
+# You want to change it, how do you do it?
+
+> git checkout branch
+> git commit -m "xas"
+> git commit -m "ada"
+> 
+
+# 
+
+# `git commit --amend` ? how it works ? how to commit in latest commit in branch and generate a single commit again
+
+
+
+
+4th round(Director):
+	> why Mediatek
+	> succes stories
+	> highlighted a tagline of my resume, asked to explain
+	> know your role and job model based Qs
+	> asked to devote time in early morning/late evening
+	> opened forum for me to ask Qs
+	
+	
+	
+HR round :
+	Ambition box research:
+		Senior Sdet Engineer salary in Bengaluru/Bangalore ranges between ₹ 7.2 Lakhs to ₹ 40.5 Lakhs. Salary estimates are based on 117 latest salaries received from Senior Sdet Engineers.
+	Google research:
+		Mediatek pays ₹50L/year for a Principal Engineer/staff level person.
+		Staff Engineer salary at MediaTek India Technology India ranges between ₹ 19.0 Lakhs to ₹ 38.0 Lakhs.
+		
+		Automation Test Lead salary in Bengaluru/Bangalore ranges between ₹ 9.9 Lakhs to ₹ 24.9 Lakhs with an average annual salary of ₹ 15.8 Lakhs. Salary estimates are based on 677 latest salaries received from Automation Test Leads.
+		
+	
+	
+	
+	Can you share an example that how you solve the hard problem in your working experience?
+	What are your greatest strengths and weaknesses?
+	what's your role in a team
+	What challenges have you faced? How did you handle them?
+	How do you cooperate with teammates in the project?
+

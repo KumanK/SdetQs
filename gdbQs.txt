@@ -90,3 +90,90 @@ Starting program: /home/kkuman/coding/myFile 30
 [Inferior 1 (process 2035) exited normally]
 
 ----------------------------------------------------------------------------------------------
+print hex value of a variable
+
+(gdb) print/x a
+$2 = 0x14
+
+
+----------------------------------------
+
+watch point when a value changes:
+
+Breakpoint 5, makeSquare (a=@0x7fffffffe4e0: 33) at watch.cpp:8
+8           a= a*a;
+(gdb) watch a
+Hardware watchpoint 8: a
+(gdb) print a
+$1 = (int &) @0x7fffffffe4e0: 33
+(gdb) continue
+Continuing.
+
+Watchpoint 8 deleted because the program has left the block in
+which its expression is valid.
+main (n=2, args=0x7fffffffe5d8) at watch.cpp:17
+17              cout<<a<<endl;
+(gdb) print a
+$2 = 1089
+-----------------------------------------------------------
+Back trace to identify seg faults
+
+Breakpoint 9, makeSquare (a=@0x7fffffffe4e0: 70) at watch.cpp:8
+8           a= a*a;
+(gdb) backtrace
+#0  makeSquare (a=@0x7fffffffe4e0: 70) at watch.cpp:8
+#1  0x00005555555549c5 in main (n=2, args=0x7fffffffe5d8) at watch.cpp:16
+--------------------------------------------------------------------
+stepping one line :
+
+Breakpoint 9, makeSquare (a=@0x7fffffffe4e0: 67) at watch.cpp:8
+8           a= a*a;
+(gdb) step
+9       }
+(gdb) step
+main (n=2, args=0x7fffffffe5d8) at watch.cpp:17
+17              cout<<a<<endl;
+(gdb) print/x a
+$3 = 0x1189
+(gdb) print a
+$4 = 4489
+(gdb) continue
+Continuing.
+4489
+[Inferior 1 (process 17436) exited normally]
+(gdb)
+-----------------------------------------------------------------------
+
+5. If we have multiple source files, then during the debugging with GDB
+a) breakpoint can not be set
+b) break point can be set by “break” command with a filename
+c) break point can be set only to makefile
+d) none of the mentioned
+
+
+----------------------------------
+see the memory
+
+(gdb) x
+0x555555554956 <makeSquare(int&)+12>:   0x8b48108b
+
+
+==================================================
+see the source code lines
+
+(gdb) list
+13          for (int i = 1; i < n; i++)
+14          {
+15              int a = atoi(args[i]);
+16              makeSquare(a);
+17              cout<<a<<endl;
+18          }
+19          return 0;
+20      }
+(gdb) list 20
+15              int a = atoi(args[i]);
+16              makeSquare(a);
+17              cout<<a<<endl;
+18          }
+19          return 0;
+20      }

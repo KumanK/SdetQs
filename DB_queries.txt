@@ -1,0 +1,42 @@
+DB Qs:
+
+Primary key
+Foriegn key
+Drop/delete table
+
+DB queries
+
+
+> Sub queries
+	find the customer list(from customer table) where shipper ID(Shipper table) for the all the customer is 3
+
+		SELECT * FROM [Customers] where CustomerID in (SELECT CustomerID FROM [Orders] where ShipperID="3")
+
+> join methods
+
+> like methods for regex
+	'a%'	Finds any values that start with "a"
+	'%or%'	Finds any values that have "or" in any position
+	'a_%'	Finds any values that start with "a" and are at least 2 characters in length
+	
+	1. find suppliers where in Phone number 555 appaers as an entry
+		SELECT * FROM [Suppliers] where Phone like "%555%"
+	2. find suppliers where postal code start with 7 and end with 7
+		SELECT * FROM [Suppliers] where PostalCode like "7%7"
+	3. find customers whose postal code ends with 8 and list them in descending
+		select * from (SELECT * from Customers where PostalCode like "%8") order by Country Desc
+	4. Find customers in each city and make them ascending order of City name	
+		select * from (SELECT count(CustomerID),City from Customers group by City) order by City Asc;
+
+> range/case specific queries:
+	1. from an product prices table identify products "in budget", "out of budget",
+	categories
+	
+	 > SELECT productname,price, 
+       case when price>50 then "Above budget"
+       when price<20 then "Increase budget"
+       else "In the budget"
+       end
+       as category  
+       FROM Products
+       order by price DESC;
