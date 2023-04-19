@@ -77,7 +77,7 @@ xargs :
 	file2
 	file3
 	file4
-	root@administrator-hmecd000149:/home/kkuman/coding# ./a.out | xargs touch
+	root@administrator-hmecd0009:/home/kkuman/coding# ./a.out | xargs touch
 	root@administrator-hmecd000149:/home/kkuman/coding# ls
 	a.out  file1  file2  file3  file4  
 
@@ -87,4 +87,4 @@ xargs :
 
 
 
-	cc
+	
