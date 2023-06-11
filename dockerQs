@@ -23,5 +23,5 @@
 		> run docker container into backgroud mode - logs cannot be seen 
 		> docker attach NAME_OF_CONTAINER/ID  to see the logs occuring
 	
-	8. docker-compose	-> used to deploy multi containerized apps, read thorugh a sample docker-compose 
-							file
+	8. docker-compose	-> used to deploy multi containerized apps, read thorugh a sample docker-compose file
+				-> version, services(container_names), images, volumes, environment variables, networks
