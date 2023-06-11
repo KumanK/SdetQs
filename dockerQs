@@ -1,0 +1,27 @@
+> to-do : develop a web app on local docker and deploy it into aws cloud server
+> docker
+	1. definition of container
+		In simplest terms, docker containers consist of applications and all their dependencies.
+        They share the kernel and system resources with other containers and run as isolated systems in the host operating system.
+        The main aim of docker containers is to get rid of the infrastructure dependency while deploying and running applications. This means that any containerized application can run on any platform irrespective of the infrastructure being used beneath.
+        Technically, they are just the runtime instances of docker images
+	2. docker images
+		> They are executable packages(bundled with application code & dependencies, software packages, etc.) for the purpose of creating containers. Docker images can be deployed to any docker environment and the containers can be spun up there to run the application
+		
+	3. DockerFile
+		It is a text file that has all commands which need to be run for building a given image
+	4. functionality of a hypervisor
+		A hypervisor is a software that makes virtualization happen because of which is sometimes referred to as the Virtual Machine Monitor. This divides the resources of the host system and allocates them to each guest environment installed.
+	5. docker compose
+		It is a YAML file consisting of all the details regarding various services, networks, and volumes that are needed for setting up the Docker-based application. So, docker-compose is used for creating multiple containers, host them and establish communication between them
+	6. docker commands:
+		status of all containers - docker ps -a
+		start a docker -> docker start NAME_OF_CONTAINER
+		start a container -> docker run container_id
+	7. attahced & detached modern
+		> run docker container into foregroud mode - logs can be seen in stdout
+		> run docker container into backgroud mode - logs cannot be seen 
+		> docker attach NAME_OF_CONTAINER/ID  to see the logs occuring
+	
+	8. docker-compose	-> used to deploy multi containerized apps, read thorugh a sample docker-compose 
+							file
