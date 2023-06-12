@@ -18,10 +18,20 @@
 		status of all containers - docker ps -a
 		start a docker -> docker start NAME_OF_CONTAINER
 		start a container -> docker run container_id
+		start an interactive container with auto remvove -> docker run -it --rm container_id
+		push docker image to hub -> docker push
+		rename the docker image -> docker tag
+		build a local image -> docker build (you need a DockerFile inside pwd, remember keywords of DockerFile)
+		list images in local -> docker images
+		remove an image -> docker rmi IMAGE_ID
+		pull an image from hub -> docker pull
+		
 	7. attahced & detached modern
 		> run docker container into foregroud mode - logs can be seen in stdout
 		> run docker container into backgroud mode - logs cannot be seen 
 		> docker attach NAME_OF_CONTAINER/ID  to see the logs occuring
 	
-	8. docker-compose	-> used to deploy multi containerized apps, read thorugh a sample docker-compose file
-				-> version, services(container_names), images, volumes, environment variables, networks
+	8. docker-compose	-> used to deploy multi containerized apps, read thorugh a sample docker-compose 
+							file
+				 > version, services(container_names), images, volumes, environment variables, networks
+		
