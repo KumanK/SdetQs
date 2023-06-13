@@ -1,6 +1,6 @@
 > sed 's/foo/koo/' hello.txt       -> for every line of hello.txt first occurance of foo will be replaced with koo
 
-> sed -i 's/foo/koo/' hello.txt    -> for every line of hello.txt first occurance of foo will be replaced with koo in place, hello.txt will be modified
+> sed -i 's/foo/koo/' hello.txt    -> for every line of hello.txt first occurance of foo will be replaced with koo in place, hello.txt will be modified -i means in place
 
 > sed -i "s/old/new/g" sample.txt  -> old will become new for every occurance
 > sed -i "s/old/new/gI" sample.txt -> OLd, old, Old case sensitive "old" will be replaced
@@ -33,7 +33,7 @@
 		w - word match
 		e - pattern/regex
 	example:
-		root@administrator-hmecd000149:/home/kkuman/coding# grep -Rw . -e ".ot"
+	root@administrator-hmecd000149:/home/kkuman/coding# grep -Rw . -e ".ot"
         Binary file ./gdb/myFile matches
         Binary file ./gdb/watchFile matches
         ./files/l2.txt:dajshdj got hsas hocas
