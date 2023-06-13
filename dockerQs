@@ -10,15 +10,19 @@
 		
 	3. DockerFile
 		It is a text file that has all commands which need to be run for building a given image
+		keywords in docker file (WORKDIR,COPY, RUN, CMD, FROM etc.)
 	4. functionality of a hypervisor
 		A hypervisor is a software that makes virtualization happen because of which is sometimes referred to as the Virtual Machine Monitor. This divides the resources of the host system and allocates them to each guest environment installed.
 	5. docker compose
 		It is a YAML file consisting of all the details regarding various services, networks, and volumes that are needed for setting up the Docker-based application. So, docker-compose is used for creating multiple containers, host them and establish communication between them
+		-> used to deploy multi containerized apps, read thorugh a sample docker-compose 
+							file
+		> version, services(container_names), images, volumes, environment variables, networks
 	6. docker commands:
 		status of all containers - docker ps -a
-		start a docker -> docker start NAME_OF_CONTAINER
+		start a container -> docker start NAME_OF_CONTAINER
 		start a container -> docker run container_id
-		start an interactive container with auto remvove -> docker run -it --rm container_id
+		start an interactive container with auto remvove when stopped -> docker run -it --rm container_id
 		push docker image to hub -> docker push
 		rename the docker image -> docker tag
 		build a local image -> docker build (you need a DockerFile inside pwd, remember keywords of DockerFile)
@@ -26,12 +30,8 @@
 		remove an image -> docker rmi IMAGE_ID
 		pull an image from hub -> docker pull
 		
-	7. attahced & detached modern
+	7. attahced & detached mode
 		> run docker container into foregroud mode - logs can be seen in stdout
 		> run docker container into backgroud mode - logs cannot be seen 
 		> docker attach NAME_OF_CONTAINER/ID  to see the logs occuring
 	
-	8. docker-compose	-> used to deploy multi containerized apps, read thorugh a sample docker-compose 
-							file
-				 > version, services(container_names), images, volumes, environment variables, networks
-		
