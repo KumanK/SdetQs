@@ -1,4 +1,25 @@
-> to-do : develop a web app on local docker and deploy it into aws cloud server
+> develop a web/test app on local docker and deploy it into aws cloud server
+	> created a venv for python REST API based app
+	> after installing libs freeze the reqs into pipeline
+	> prepare a docker file
+		>   FROM python:latest
+			WORKDIR /TESTS
+			COPY . .
+			EXPOSE 8888
+			RUN pip3 install -r requirements.txt
+			CMD ["pytest",". --html=index.html"]
+			CMD python -m http.server 8888
+		> make arrangements to execute the tests in pytest
+		> expose HTML results in 8888 port 
+		
+	> build the image locally with DockerFile and tag image as smoke_tests_ad
+		> docker build . -t smoke_tests_ad
+	> run the container with 8888 refrenced to 8888 of docker
+		> docker run -p 8888:8888 smoke_tests_ad
+	> open the localhost:8888
+	
+	
+	
 > docker
 	1. definition of container
 		In simplest terms, docker containers consist of applications and all their dependencies.
@@ -10,28 +31,50 @@
 		
 	3. DockerFile
 		It is a text file that has all commands which need to be run for building a given image
-		keywords in docker file (WORKDIR,COPY, RUN, CMD, FROM etc.)
 	4. functionality of a hypervisor
 		A hypervisor is a software that makes virtualization happen because of which is sometimes referred to as the Virtual Machine Monitor. This divides the resources of the host system and allocates them to each guest environment installed.
 	5. docker compose
 		It is a YAML file consisting of all the details regarding various services, networks, and volumes that are needed for setting up the Docker-based application. So, docker-compose is used for creating multiple containers, host them and establish communication between them
-		-> used to deploy multi containerized apps, read thorugh a sample docker-compose 
-							file
-		> version, services(container_names), images, volumes, environment variables, networks
 	6. docker commands:
 		status of all containers - docker ps -a
-		start a container -> docker start NAME_OF_CONTAINER
+		start a docker -> docker start NAME_OF_CONTAINER
 		start a container -> docker run container_id
-		start an interactive container with auto remvove when stopped -> docker run -it --rm container_id
+		start an interactive container with auto remvove -> docker run -it --rm container_id
+		start container in detached mode -d
 		push docker image to hub -> docker push
 		rename the docker image -> docker tag
 		build a local image -> docker build (you need a DockerFile inside pwd, remember keywords of DockerFile)
 		list images in local -> docker images
 		remove an image -> docker rmi IMAGE_ID
 		pull an image from hub -> docker pull
+		delete all local images -> docker image prune -a
+		find details of a running docker - docker container inspect NAME -> IP address can be used to comms from another container
 		
-	7. attahced & detached mode
+	7. attahced & detached modern
 		> run docker container into foregroud mode - logs can be seen in stdout
 		> run docker container into backgroud mode - logs cannot be seen 
 		> docker attach NAME_OF_CONTAINER/ID  to see the logs occuring
+	
+	8. docker-compose	-> used to deploy multi containerized apps, read thorugh a sample docker-compose 
+							file
+						> version, services(container_names), images, volumes, environment variables, networks
+		
+	9. dockerignore file -> it will not copy mentioned files types into image	
+	10. ENV variables in DockerFile
+		define in docker file:	
+			ENV PORT 10 -> use into python os.environ["PORT"]
+			using docker command line -e PORT=8000
+			.env file have key=val  use cmd line --env-file
+	11. build ARG variables in DockerFile -> comes from user cmd line 
+			ARG DEFAULT=90
+			;;;;;;;;
+			;;;.....
+			use DEFAULT somewhere before starting containers
+			cmd line --build-arg DEFAULT=30
+	12. Docker networking
+		www is default access
+		docker can connect to host machine/localhost -> use "host.docker.internal" as domain name in python code
+		docker network create NAME
+		docker run --network NAME, give same name for required containers, domain name will be NAME OF DOCKER COntainer itslef
+			like mogodb://MONGODB:21017/xxx
 	
