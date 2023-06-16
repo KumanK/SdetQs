@@ -1,0 +1,52 @@
+1st Round(Tech):
+	Recent project:
+		> Project discussions
+		> what is LDAP ? project question -  Directory comms protocol, get user users persmissiond granted via LDAP
+			- To authenticate, the  client sends a bind request to the LDAP server along with the user’s identifier (i.e., username or email) and password, which the client obtains when the user inputs their credentials.
+			- LDAP authentication as a cloud-based service
+	Framework\scripting:
+		> python + selenium, what is preffered way to find out locators ? name / xpaths ?
+		> json stringify , JSON loads Vs load
+	
+		1. write a requst code for GET requests
+			try except finally
+			Class code
+			status code
+			Error types
+			difference between requests.request and requests.get
+		2. list 10 shell commands:
+			sed -> replace Ahmedabad to Mumbai in a text file
+			
+	Python coding:
+		> longest substring where left and right digit sum is equal
+		> middle element should be always odd
+		> o/p string length is always odd
+		examples:
+			1. num = 12321
+				o/p = 5 "12 3 21" -> around 3 both sides we have sum =2+1 =3
+			2. num = 1237326
+				o/p = 5 "23732" is such a string
+		
+		Approach Implemented:
+			1. travel to the each digit of number
+			2. When a digit found odd , jump to routine get_substring()
+			3. get_substring() defines a mid , right and left pointers
+				> sum the left & right side digits until it is same | we reach to end of right/left side
+				
+		cons - this approach does not works for input "9817891"
+
+2nd round:
+	write a program to read stringified JSON and give a dictionary object
+		> make your own json.loads() function
+		> different error handling
+		> different layer of validations
+		> suggested to make use of {[{}]} valid paranthesis algorithm
+
+3rd round:
+	> difference of an image and container
+	> questions on docker file, sample docker file to run a python suite
+	> how to restrict users to access the docker container
+	> container security
+	> volumes/bind mounts
+	> default network of the docker
+	> write a sample kubernetes cluster file for my python app
