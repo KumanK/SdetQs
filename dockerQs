@@ -78,3 +78,6 @@
 		docker run --network NAME, give same name for required containers, domain name will be NAME OF DOCKER COntainer itslef
 			like mogodb://MONGODB:21017/xxx
 	
+	13. Docker bind mounts(mostly used for code changes in local and without building u can get code changes to containers)
+		> docker run -it --rm --name dockeredpy  -v "C:\Users\kkothiya\PycharmProjects\dockered_s
+mokes:/TESTS" pythonimage:7
