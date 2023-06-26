@@ -80,4 +80,6 @@
 	
 	13. Docker bind mounts(mostly used for code changes in local and without building u can get code changes to containers)
 		> docker run -it --rm --name dockeredpy  -v "C:\Users\kkothiya\PycharmProjects\dockered_s
+	14. Docker copy from container to host
+		> docker cp bc34163fa9b2(container ID):/TESTS/smokes/456.txt .\smokes\345.txt(local path)
 mokes:/TESTS" pythonimage:7
